@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #616261;
+  font-family: Georgia, Times, "Times New Roman", serif;
+}
+.pin-sequence {
+  height: 100vh;
+  position: relative;
+}
+.scroll-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+canvas {
+  width: 50vw; /* scales proportionally */
+  height: auto;
+  aspect-ratio: 1702 / 1550;
+  image-rendering: crisp-edges; /* helps browsers keep sharpness */
+  image-rendering: pixelated; /* fallback for some browsers */
+}
+.scroll-text {
+  padding: 150px;
+  width: 50vw;
+  text-align: left;
+  font-size: 1.5rem;
+  color: #fff;
+}
+#weight-text {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+/* Existing Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base Body Styles */
+body {
+  background-color: #616261;
+  font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+/* --- Responsive Adaptation for Mobile --- */
+@media (max-width: 768px) {
+  .comparison-section {
+    /* Revert to stacking the image and text vertically */
+    flex-direction: column;
+    min-height: auto; /* Allow height to be determined by content */
+    padding: 40px 10px;
+  }
+
+  .visual-container {
+    width: 100%; /* Image takes full width */
+    padding: 0 10px 20px 10px; /* Add padding below the image */
+  }
+
+  .data-container {
+    width: 100%; /* Text takes full width */
+    align-items: center; /* Center the text on mobile */
+    padding: 0 10px;
+  }
+
+  /* Adjust font sizes for fixed pixel sizes on mobile for readability */
+  .year-data,
+  .death-count {
+    font-size: 28px;
+  }
+}
+
+/* ==============================
+MOBILE INTRO (Full Height)
+============================== 
+*/
+
+/* ==============================
+MOBILE SEQUENCE SECTION
+============================== 
+*/
+
+.pin-sequence {
+  height: 100vh;
+  position: relative;
+}
+
+.scroll-container {
+  /* Stacked layout for mobile */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  padding-top: 20px;
+}
+
+/* Canvas: Full width on mobile */
+canvas {
+  width: 90vw;
+  height: auto;
+  aspect-ratio: 1702 / 1550;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  margin-bottom: 20px;
+}
+
+/* Text Container: Full width below canvas on mobile */
+.scroll-text {
+  padding: 0 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  color: #fff;
+}
+
+#weight-text {
+  font-size: 3rem;
+  line-height: 1.6;
+}
+
+/* ==============================
+DESKTOP STYLES (Min-width: 1025px)
+============================== 
+*/
+
+/* @media (min-width: 1025px) {
+
+  .scroll-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+  }
+
+  canvas {
+    width: 50vw;
+    margin-bottom: 0;
+  }
+
+  .scroll-text {
+    padding: 150px;
+    width: 50vw;
+    text-align: left;
+    font-size: 1.5rem;
+  }
+
+  #weight-text {
+    font-size: 2rem;
+  }
+} */
+
+@media (min-width: 1025px) {
+  /* Sequence container reverts to side-by-side */
+  .scroll-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+  }
+
+  /* Set Canvas (Visual) to 75% width */
+  canvas {
+    width: 75vw; /* Changed from 50vw to 75vw */
+    margin-bottom: 0;
+  }
+
+  /* Set Text Container to 25% width */
+  .scroll-text {
+    padding: 150px 20px 150px 20px; /* Reduced padding for the 25% width */
+    width: 25vw; /* Changed from 50vw to 25vw */
+    text-align: left; /* Keep text aligned left */
+    font-size: 1.5rem;
+  }
+
+  /* Ensure #weight-text is styled to be large and clear */
+  #weight-text {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+}
+
+/* Styling for dynamically injected text components */
+.data-year {
+  color: #ffc107; /* Yellow color for the year */
+  font-size: 1.2em; /* Slightly larger than the rest of the text */
+  display: block; /* Ensures it occupies its own line */
+}
+
+.data-count {
+  color: #fff;
+  font-weight: bold;
+  display: block; /* Ensures it occupies its own line */
+  line-height: 1.2;
+}
